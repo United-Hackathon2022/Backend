@@ -1,5 +1,6 @@
 package com.hackaton.hackation2022.domain.feed.service;
 
+import com.hackaton.hackation2022.domain.feed.domain.Feed;
 import com.hackaton.hackation2022.domain.feed.domain.repository.FeedRepository;
 import com.hackaton.hackation2022.domain.feed.facade.FeedFacade;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +16,9 @@ public class DeleteFeedService {
 
     @Transactional
     public void execute(Long feedId) {
-        feedRepository.delete(feedFacade.findFeedById(feedId));
+        Feed feed = feedFacade.findFeedById(feedId);
+        // TODO :: getCurrentUser
+        feed.validateUser(null);
+        feedRepository.delete(feed);
     }
 }

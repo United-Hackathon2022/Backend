@@ -15,14 +15,14 @@ public class CreateFeedService {
 
     @Transactional
     public void execute(FeedRequest request) {
-        feedRepository.save(
-                Feed.builder()
-                        .title(request.getTitle())
-                        .content(request.getContent())
-                        .type(request.getType())
-                        // TODO :: getCurrentUser
-                        .user(null)
-                        .build()
-        );
+        Feed feed = Feed.builder()
+                .title(request.getTitle())
+                .content(request.getContent())
+                .type(request.getType())
+                // TODO :: getCurrentUser
+                .user(null)
+                .build();
+
+        feedRepository.save(feed);
     }
 }
