@@ -1,5 +1,6 @@
-package com.hackaton.hackation2022.domain.user.domain;
+package com.hackaton.hackation2022.domain.mentorapplication.doamin;
 
+import com.hackaton.hackation2022.domain.user.domain.User;
 import com.hackaton.hackation2022.global.entity.BaseTimeIdEntity;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

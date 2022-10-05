@@ -1,4 +1,4 @@
-package com.hackaton.hackation2022.domain.user.domain;
+package com.hackaton.hackation2022.domain.mentorapplication.doamin;
 
 import lombok.*;
 
