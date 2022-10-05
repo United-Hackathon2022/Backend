@@ -32,7 +32,7 @@ public class SecurityConfig {
 
                 .and()
                 .authorizeRequests()
-                .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
+                .requestMatchers(CorsUtils::isPreFlightRequest).permitAll();
 
         return http.build();
     }
