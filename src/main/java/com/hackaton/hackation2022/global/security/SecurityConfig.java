@@ -1,5 +1,9 @@
 package com.hackaton.hackation2022.global.security;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.hackaton.hackation2022.global.security.jwt.JwtTokenProvider;
+import com.hackaton.hackation2022.global.security.jwt.filter.JwtFilterConfig;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -10,10 +14,16 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsUtils;
 
+import javax.servlet.FilterConfig;
+
 @Configuration
 @EnableWebSecurity
+@RequiredArgsConstructor
 public class SecurityConfig {
 
+
+    private final JwtTokenProvider jwtTokenProvider;
+    private final ObjectMapper objectMapper;
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -32,7 +42,11 @@ public class SecurityConfig {
 
                 .and()
                 .authorizeRequests()
-                .requestMatchers(CorsUtils::isPreFlightRequest).permitAll();
+                .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
+
+                .and()
+                .apply(new JwtFilterConfig(jwtTokenProvider, objectMapper));
+
 
         return http.build();
     }
