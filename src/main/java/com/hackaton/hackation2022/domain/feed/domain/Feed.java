@@ -42,4 +42,10 @@ public class Feed extends BaseTimeIdEntity {
         this.type = type;
         this.user = user;
     }
+
+    public void updateFeed(String title, String content, FeedType type) {
+        this.title = title;
+        this.content = content;
+        this.type = type;
+    }
 }
