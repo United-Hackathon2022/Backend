@@ -11,6 +11,7 @@ import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -34,6 +35,9 @@ public class Feed extends BaseTimeIdEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+
+    @OneToMany(mappedBy = "feed", cascade = CascadeType.ALL)
+    private List<Comment> comments;
 
     @Builder
     public Feed(String title, String content, FeedType type, User user) {
