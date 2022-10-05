@@ -1,6 +1,5 @@
 package com.hackaton.hackation2022.global.error;
 
-import com.hackaton.hackation2022.global.error.exception.ErrorCode;
 import com.hackaton.hackation2022.global.error.exception.ErrorProperty;
 import lombok.Builder;
 import lombok.Getter;
