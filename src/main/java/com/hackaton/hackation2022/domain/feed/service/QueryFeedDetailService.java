@@ -1,5 +1,6 @@
 package com.hackaton.hackation2022.domain.feed.service;
 
+import com.hackaton.hackation2022.domain.feed.domain.Feed;
 import com.hackaton.hackation2022.domain.feed.facade.FeedFacade;
 import com.hackaton.hackation2022.domain.feed.presentation.dto.response.FeedDetailResponse;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +15,7 @@ public class QueryFeedDetailService {
 
     @Transactional(readOnly = true)
     public FeedDetailResponse execute(Long feedId) {
-        return FeedDetailResponse.of(feedFacade.findFeedById(feedId));
+        Feed feed = feedFacade.findFeedById(feedId);
+        return FeedDetailResponse.of(feed);
     }
 }
