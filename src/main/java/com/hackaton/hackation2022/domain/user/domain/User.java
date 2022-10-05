@@ -22,6 +22,10 @@ import javax.validation.constraints.NotNull;
 public class User extends BaseTimeIdEntity {
 
     @NotNull
+    @Length(max = 64)
+    protected String email;
+
+    @NotNull
     @Length(max = 15)
     private String name;
 
@@ -50,8 +54,9 @@ public class User extends BaseTimeIdEntity {
     private String firstAge;
 
     @Builder
-    public User(String name, String password, String authCode, Sex sex,
+    public User(String email, String name, String password, String authCode, Sex sex,
                 Authority authority, String profileImageUrl, String firstAge) {
+        this.email = email;
         this.name = name;
         this.password = password;
         this.authCode = authCode;
