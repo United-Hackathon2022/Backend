@@ -1,6 +1,7 @@
 package com.hackaton.hackation2022.domain.feed.domain;
 
 import com.hackaton.hackation2022.domain.feed.domain.type.FeedType;
+import com.hackaton.hackation2022.domain.feed.exception.NotAuthorizedFeedException;
 import com.hackaton.hackation2022.domain.user.domain.User;
 import com.hackaton.hackation2022.global.entity.BaseTimeIdEntity;
 import lombok.AccessLevel;
@@ -51,5 +52,11 @@ public class Feed extends BaseTimeIdEntity {
         this.title = title;
         this.content = content;
         this.type = type;
+    }
+
+    public void validateUser(User user) {
+        if (this.user.getId() != user.getId()) {
+            throw NotAuthorizedFeedException.EXCEPTION;
+        }
     }
 }

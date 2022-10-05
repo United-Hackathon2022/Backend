@@ -9,6 +9,7 @@ import lombok.Getter;
 public enum FeedErrorProperty implements ErrorProperty {
 
     INVALID_FEED_TYPE(400, "Invalid Feed Type"),
+    NOT_AUTHORIZED_FEED(403, "Not Authorized Feed"),
     ;
 
     private final int status;

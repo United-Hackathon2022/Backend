@@ -18,14 +18,8 @@ public class UpdateFeedService {
     public void execute(Long feedId, FeedRequest request) {
         Feed feed = feedFacade.findFeedById(feedId);
         // TODO :: getCurrentUser
-        validateUser(feed.getUser(), null);
+        feed.validateUser(null);
 
         feed.updateFeed(request.getTitle(), request.getContent(), request.getType());
-    }
-
-    private void validateUser(User expected, User actual) {
-        if (expected.getId() != actual.getId()) {
-            throw new RuntimeException("");
-        }
     }
 }
