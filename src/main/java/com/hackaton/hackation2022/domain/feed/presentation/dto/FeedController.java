@@ -17,8 +17,7 @@ import java.util.List;
 public class FeedController {
 
     private final CreateFeedService createFeedService;
-    private final QueryQuestionFeedService queryQuestionFeedService;
-    private final QueryJobOfferFeedService queryJobOfferFeedService;
+    private final QueryFeedsService queryFeedsService;
     private final QueryFeedDetailService queryFeedDetailService;
     private final UpdateFeedService updateFeedService;
     private final DeleteFeedService deleteFeedService;
@@ -30,13 +29,7 @@ public class FeedController {
 
     @GetMapping
     public List<FeedResponse> getFeeds(@RequestParam String type) {
-        if (type.equals("question")) {
-            return queryQuestionFeedService.execute();
-        } else if (type.equals("job-offer")) {
-            return queryJobOfferFeedService.execute();
-        } else {
-            throw InvalidFeedTypeException.EXCEPTION;
-        }
+        return queryFeedsService.execute(type);
     }
 
     @GetMapping("/{id}")
