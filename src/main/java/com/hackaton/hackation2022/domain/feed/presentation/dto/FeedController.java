@@ -1,5 +1,6 @@
 package com.hackaton.hackation2022.domain.feed.presentation.dto;
 
+import com.hackaton.hackation2022.domain.feed.exception.InvalidFeedTypeException;
 import com.hackaton.hackation2022.domain.feed.presentation.dto.request.FeedRequest;
 import com.hackaton.hackation2022.domain.feed.presentation.dto.response.FeedDetailResponse;
 import com.hackaton.hackation2022.domain.feed.presentation.dto.response.FeedResponse;
@@ -31,10 +32,10 @@ public class FeedController {
     public List<FeedResponse> getFeeds(@RequestParam String type) {
         if (type.equals("question")) {
             return queryQuestionFeedService.execute();
-        } else if (type.equals("jon-offer")) {
+        } else if (type.equals("job-offer")) {
             return queryJobOfferFeedService.execute();
         } else {
-            // TODO :: BAD REQUEST exception
+            throw InvalidFeedTypeException.EXCEPTION;
         }
     }
 
