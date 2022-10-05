@@ -1,31 +1,34 @@
 package com.hackaton.hackation2022.domain.feed.domain;
 
 import com.hackaton.hackation2022.domain.feed.domain.type.FeedType;
+import com.hackaton.hackation2022.domain.user.domain.entity.User;
+import com.hackaton.hackation2022.global.entity.BaseTimeIdEntity;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
+@Getter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
 @Table(name = "tbl_feed")
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Getter
-public class Feed {
+public class Feed extends BaseTimeIdEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(length = 30, nullable = false)
+    @NotNull
+    @Length(max = 30)
     private String title;
 
-    @Column(length = 1000, nullable = false)
+    @NotNull
+    @Length(max = 1000)
     private String content;
 
+    @NotNull
+    @Length(max = 8)
     @Enumerated(value = EnumType.STRING)
-    @Column(length = 8, nullable = false)
     private FeedType type;
 
     @ManyToOne(fetch = FetchType.LAZY)

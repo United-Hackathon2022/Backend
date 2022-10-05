@@ -1,7 +1,7 @@
 package com.hackaton.hackation2022.domain.feed.domain.repository;
 
 import com.hackaton.hackation2022.domain.feed.domain.Feed;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
-public interface FeedRepository extends JpaRepository<Feed, Long> {
+public interface FeedRepository extends CrudRepository<Feed, Long> {
 }
