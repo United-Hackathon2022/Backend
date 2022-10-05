@@ -1,7 +1,7 @@
 package com.hackaton.hackation2022.domain.feed.domain;
 
 import com.hackaton.hackation2022.domain.feed.domain.type.FeedType;
-import com.hackaton.hackation2022.domain.user.domain.entity.User;
+import com.hackaton.hackation2022.domain.user.domain.User;
 import com.hackaton.hackation2022.global.entity.BaseTimeIdEntity;
 import lombok.AccessLevel;
 import lombok.Builder;
