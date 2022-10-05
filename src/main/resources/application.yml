@@ -11,14 +11,13 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
 
   datasource:
-    url: jdbc:mysql://${DB_URL}:3306/${DB_NAME}?useSSL=false&characterEncoding=UTF-8&serverTimezone=Asia/Seoul&allowPublicKeyRetrieval=true
+    url: ${DB_URL}
     username: ${DB_USER}
     password: ${DB_PWD}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jackson:
     property-naming-strategy: SNAKE_CASE
-

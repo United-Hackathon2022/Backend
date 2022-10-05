@@ -1,7 +1,6 @@
 package com.hackaton.hackation2022.domain.mentorapplication.doamin;
 
 import com.hackaton.hackation2022.domain.user.domain.User;
-import com.hackaton.hackation2022.global.entity.BaseTimeIdEntity;
 import lombok.*;
 
 import javax.persistence.*;
@@ -24,8 +23,6 @@ public class MentorApplication {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @NotNull
-    private LocalDateTime createdAt;
 
 
     @MapsId("user")
