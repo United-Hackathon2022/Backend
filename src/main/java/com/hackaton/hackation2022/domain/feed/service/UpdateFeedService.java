@@ -15,8 +15,8 @@ public class UpdateFeedService {
     private final FeedFacade feedFacade;
 
     @Transactional
-    public void execute(Long id, FeedRequest request) {
-        Feed feed = feedFacade.findFeedById(id);
+    public void execute(Long feedId, FeedRequest request) {
+        Feed feed = feedFacade.findFeedById(feedId);
         // TODO :: getCurrentUser
         validateUser(feed.getUser(), null);
 

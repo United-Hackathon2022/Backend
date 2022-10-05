@@ -11,7 +11,7 @@ public class QueryFeedDetailService {
 
     private final FeedFacade feedFacade;
 
-    public FeedDetailResponse execute(Long id) {
-        return FeedDetailResponse.of(feedFacade.findFeedById(id));
+    public FeedDetailResponse execute(Long feedId) {
+        return FeedDetailResponse.of(feedFacade.findFeedById(feedId));
     }
 }

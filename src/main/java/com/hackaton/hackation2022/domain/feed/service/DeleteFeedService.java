@@ -14,7 +14,7 @@ public class DeleteFeedService {
     private final FeedFacade feedFacade;
 
     @Transactional
-    public void execute(Long id) {
-        feedRepository.delete(feedFacade.findFeedById(id));
+    public void execute(Long feedId) {
+        feedRepository.delete(feedFacade.findFeedById(feedId));
     }
 }

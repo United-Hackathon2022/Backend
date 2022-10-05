@@ -32,18 +32,18 @@ public class FeedController {
         return queryFeedsService.execute(type);
     }
 
-    @GetMapping("/{id}")
-    public FeedDetailResponse getFeedDetail(@PathVariable Long id) {
-        return queryFeedDetailService.execute(id);
+    @GetMapping("/{feed_id}")
+    public FeedDetailResponse getFeedDetail(@PathVariable Long feedId) {
+        return queryFeedDetailService.execute(feedId);
     }
 
-    @PutMapping("/{id}")
-    public void updateFeed(@PathVariable Long id, @RequestBody @Valid FeedRequest request) {
-        updateFeedService.execute(id, request);
+    @PutMapping("/{feed_id}")
+    public void updateFeed(@PathVariable Long feedId, @RequestBody @Valid FeedRequest request) {
+        updateFeedService.execute(feedId, request);
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteFeed(@PathVariable Long id) {
-        deleteFeedService.execute(id);
+    @DeleteMapping("/{feed_id}")
+    public void deleteFeed(@PathVariable Long feedId) {
+        deleteFeedService.execute(feedId);
     }
 }
