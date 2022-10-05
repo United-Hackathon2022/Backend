@@ -11,7 +11,7 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     show-sql: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
 
   datasource:
     url: ${DB_URL}
@@ -19,5 +19,17 @@ spring:
     password: ${DB_PWD}
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+  redis:
+    host: ${REDIS_HOST}
+    port: ${REDIS_PORT}
+
+
   jackson:
     property-naming-strategy: SNAKE_CASE
+
+jwt:
+  secret-key: ${JWT_SECRET}
+  access-exp: ${JWT_ACCESS_EXP}
+  refresh-exp: ${JWT_REFRESH_EXP}
+  header: ${JWT_HEADER}
+  prefix: ${JWT_PREFIX}
