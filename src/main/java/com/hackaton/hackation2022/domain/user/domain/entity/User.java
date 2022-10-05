@@ -44,14 +44,14 @@ public class User extends BaseTimeIdEntity {
     private Authority authority;
 
     @NotNull
-    private Sex profileImageUrl;
+    private String profileImageUrl;
 
     @NotNull
     private String firstAge;
 
     @Builder
     public User(String name, String password, String authCode, Sex sex,
-                Authority authority, Sex profileImageUrl, String firstAge) {
+                Authority authority, String profileImageUrl, String firstAge) {
         this.name = name;
         this.password = password;
         this.authCode = authCode;
