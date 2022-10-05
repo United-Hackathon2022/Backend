@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.Embeddable;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Getter
 @AllArgsConstructor
@@ -13,6 +14,8 @@ import java.io.Serializable;
 public class MentorApplicationId implements Serializable {
 
     private Long user;
+
+    private LocalDateTime createdAt;
 
     private Long targetUser;
 
