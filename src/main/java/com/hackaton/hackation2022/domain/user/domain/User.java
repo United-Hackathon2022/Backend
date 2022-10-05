@@ -1,4 +1,4 @@
-package com.hackaton.hackation2022.domain.user.domain.entity;
+package com.hackaton.hackation2022.domain.user.domain;
 
 import com.hackaton.hackation2022.domain.user.domain.type.Authority;
 import com.hackaton.hackation2022.domain.user.domain.type.Sex;
