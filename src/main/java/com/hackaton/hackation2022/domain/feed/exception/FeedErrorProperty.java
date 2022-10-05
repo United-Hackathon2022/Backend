@@ -10,6 +10,7 @@ public enum FeedErrorProperty implements ErrorProperty {
 
     INVALID_FEED_TYPE(400, "Invalid Feed Type"),
     NOT_AUTHORIZED_FEED(403, "Not Authorized Feed"),
+    FEED_NOT_FOUND(404, "Feed Not Found"),
     ;
 
     private final int status;
