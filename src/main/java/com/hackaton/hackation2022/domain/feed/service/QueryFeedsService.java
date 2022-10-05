@@ -6,6 +6,7 @@ import com.hackaton.hackation2022.domain.feed.exception.InvalidFeedTypeException
 import com.hackaton.hackation2022.domain.feed.presentation.dto.response.FeedResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -16,6 +17,7 @@ public class QueryFeedsService {
 
     private final FeedRepository feedRepository;
 
+    @Transactional(readOnly = true)
     public List<FeedResponse> execute(String type) {
         if (type.equals("question")) {
             return feedRepository.findFeedsByType(FeedType.QUESTION)

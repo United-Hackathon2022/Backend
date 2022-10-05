@@ -12,7 +12,6 @@ public class FeedFacade {
 
     private final FeedRepository feedRepository;
 
-    @Transactional(readOnly = true)
     public Feed findFeedById(Long feedId) {
         return feedRepository.findById(feedId)
                 .orElseThrow(IllegalArgumentException::new);
