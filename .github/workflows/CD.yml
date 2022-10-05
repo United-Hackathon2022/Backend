@@ -33,7 +33,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Docker Build
-        run: docker build -t teamwalkhub/walkhub-server .
+        run: docker build -t lyutvs/hackathon .
 
       - name: Push on Dockerhub
-        run: docker push teamwalkhub/walkhub-server
+        run: docker push lyutvs/hackathon
