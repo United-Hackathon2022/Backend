@@ -4,7 +4,6 @@ import lombok.*;
 
 import javax.persistence.Embeddable;
 import java.io.Serializable;
-import java.util.UUID;
 
 @Getter
 @AllArgsConstructor
@@ -13,8 +12,8 @@ import java.util.UUID;
 @EqualsAndHashCode
 public class MentorApplicationId implements Serializable {
 
-    private UUID user;
+    private Long user;
 
-    private UUID targetUser;
+    private Long targetUser;
 
 }
