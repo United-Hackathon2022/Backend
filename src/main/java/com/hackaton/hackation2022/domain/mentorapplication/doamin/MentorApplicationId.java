@@ -15,7 +15,6 @@ public class MentorApplicationId implements Serializable {
 
     private Long user;
 
-    private LocalDateTime createdAt;
 
     private Long targetUser;
 

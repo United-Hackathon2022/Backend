@@ -11,7 +11,7 @@ spring:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
 
   datasource:
     url: ${DB_URL}
@@ -21,4 +21,3 @@ spring:
 
   jackson:
     property-naming-strategy: SNAKE_CASE
-
