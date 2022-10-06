@@ -4,14 +4,12 @@ import com.hackaton.hackation2022.domain.feed.presentation.dto.request.CreateFee
 import com.hackaton.hackation2022.domain.feed.presentation.dto.request.UpdateFeedRequest;
 import com.hackaton.hackation2022.domain.feed.presentation.dto.response.FeedDetailResponse;
 import com.hackaton.hackation2022.domain.feed.presentation.dto.response.FeedListResponse;
-import com.hackaton.hackation2022.domain.feed.presentation.dto.response.FeedResponse;
 import com.hackaton.hackation2022.domain.feed.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @RestController
 @RequestMapping("/feed")
@@ -19,8 +17,7 @@ import java.util.List;
 public class FeedController {
 
     private final CreateFeedService createFeedService;
-    private final QueryQuestionFeedListService queryQuestionFeedListService;
-    private final QueryJobOfferFeedListService queryJobOfferFeedListService;
+    private final QueryFeedListService queryFeedListService;
     private final QueryFeedDetailService queryFeedDetailService;
     private final UpdateFeedService updateFeedService;
     private final DeleteFeedService deleteFeedService;
@@ -31,14 +28,9 @@ public class FeedController {
         createFeedService.execute(request);
     }
 
-    @GetMapping("/question")
-    public FeedListResponse getQuestionFeeds() {
-        return queryQuestionFeedListService.execute();
-    }
-
-    @GetMapping("/job-offer")
-    public FeedListResponse getJobOfferFeeds() {
-        return queryJobOfferFeedListService.execute();
+    @GetMapping
+    public FeedListResponse getFeedList(@RequestParam String type) {
+        return queryFeedListService.execute(type);
     }
 
     @GetMapping("/{feed-id}")
