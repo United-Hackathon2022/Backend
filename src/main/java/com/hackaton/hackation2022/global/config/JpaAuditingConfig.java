@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @EnableJpaAuditing
 @Configuration("com.hackaton.hackation2022")
-public class JpaAuditing {
+public class JpaAuditingConfig {
 }
 
