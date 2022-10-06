@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class QueryFeedsService {
+public class QueryFeedListService {
 
     private final FeedRepository feedRepository;
 
