@@ -2,7 +2,6 @@ package com.hackaton.hackation2022.domain.feed.service;
 
 import com.hackaton.hackation2022.domain.feed.domain.repository.FeedRepository;
 import com.hackaton.hackation2022.domain.feed.domain.type.FeedType;
-import com.hackaton.hackation2022.domain.feed.exception.InvalidFeedTypeException;
 import com.hackaton.hackation2022.domain.feed.presentation.dto.response.FeedResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,20 +12,13 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class QueryFeedListService {
+public class QueryQuestionFeedListService {
 
     private final FeedRepository feedRepository;
 
     @Transactional(readOnly = true)
-    public List<FeedResponse> execute(String type) {
-        if (type.equals("question")) {
+    public List<FeedResponse> execute() {
             return feedRepository.findFeedsByType(FeedType.QUESTION)
                     .stream().map(FeedResponse::of).collect(Collectors.toList());
-        } else if (type.equals("job-offer")) {
-            return feedRepository.findFeedsByType(FeedType.JOB_OFFER)
-                    .stream().map(FeedResponse::of).collect(Collectors.toList());
-        } else {
-            throw InvalidFeedTypeException.EXCEPTION;
-        }
     }
 }

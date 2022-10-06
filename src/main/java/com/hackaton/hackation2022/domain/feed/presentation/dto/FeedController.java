@@ -18,7 +18,8 @@ import java.util.List;
 public class FeedController {
 
     private final CreateFeedService createFeedService;
-    private final QueryFeedListService queryFeedListService;
+    private final QueryQuestionFeedListService queryQuestionFeedListService;
+    private final QueryJobOfferFeedListService queryJobOfferFeedListService;
     private final QueryFeedDetailService queryFeedDetailService;
     private final UpdateFeedService updateFeedService;
     private final DeleteFeedService deleteFeedService;
@@ -29,9 +30,14 @@ public class FeedController {
         createFeedService.execute(request);
     }
 
-    @GetMapping
-    public List<FeedResponse> getFeeds(@RequestParam String type) {
-        return queryFeedListService.execute(type);
+    @GetMapping("/question")
+    public List<FeedResponse> getQuestionFeeds() {
+        return queryQuestionFeedListService.execute();
+    }
+
+    @GetMapping("/job-offer")
+    public List<FeedResponse> getJobOfferFeeds() {
+        return queryJobOfferFeedListService.execute();
     }
 
     @GetMapping("/{feed-id}")
