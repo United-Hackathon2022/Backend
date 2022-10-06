@@ -1,7 +1,6 @@
 package com.hackaton.hackation2022.domain.auth.service;
 
-import com.hackaton.hackation2022.domain.auth.presentation.dto.response.NaverUserINfoElement;
-import com.hackaton.hackation2022.domain.auth.presentation.dto.response.NaverUserInfoResponse;
+import com.hackaton.hackation2022.domain.auth.presentation.dto.response.NaverUserInfoElement;
 import com.hackaton.hackation2022.domain.auth.presentation.dto.response.TokenResponse;
 import com.hackaton.hackation2022.domain.user.domain.User;
 import com.hackaton.hackation2022.domain.user.domain.repository.UserRepository;
@@ -25,27 +24,33 @@ public class NaverOauthService {
     private static String GRANT_TYPE = "authorization_code";
 
     public TokenResponse getCode(String code) {
-        String naverToken = "Bearer " + naverTokenClient.getCode(
-                GRANT_TYPE,
-                navertFeginProperties.getClientId(),
-                navertFeginProperties.getClientSecret(),
-                code,
-                navertFeginProperties.getState());
+//        String naverToken = "Bearer " + naverTokenClient.getCode(
+//                GRANT_TYPE,
+//                navertFeginProperties.getClientId(),
+//                navertFeginProperties.getClientSecret(),
+//                code,
+//                navertFeginProperties.getState()).getAccessToken();
+//
+//
+////        String token = "https://nid.naver.com/oauth2.0/token?grant_type=authorization_code&client_id=" + navertFeginProperties.getClientId() + "&client_secret="
+////                + navertFeginProperties.getClientSecret() + "&code=" + code + "&state=hackathon";
+//
+//        System.out.println(naverToken);
+//        NaverUserInfoElement userInfo = naverUserInfoClient.getUserInfo(naverToken).getResponse();
+//
+//
+//
+//        User user = userRepository.findByEmail(userInfo.getEmail())
+//                .orElseThrow(() -> UserNotFoundException.EXCEPTION);
+//
+//        User userSave = User.builder()
+//                .email(user.getEmail())
+//                .name(user.getName())
+//                .profileImageUrl(user.getProfileImageUrl())
+//                .build();
+//
+//        userRepository.save(userSave);
 
-        NaverUserInfoResponse userInfo = naverUserInfoClient.getUserInfo(naverToken);
-        User user = userRepository.findByEmail(userInfo.getResponse().getEmail())
-                .orElseThrow(() -> UserNotFoundException.EXCEPTION);
-
-        NaverUserINfoElement userInfoBuilder = userInfo.getResponse();
-
-        User userSave = User.builder()
-                .email(user.getEmail())
-                .name(userInfoBuilder.getName())
-                .profileImageUrl(userInfoBuilder.getProfileImage())
-                .build();
-
-        userRepository.save(userSave);
-
-        return jwtTokenProvider.getToken(userInfoBuilder.getEmail());
+        return jwtTokenProvider.getToken("lyutvs@naver.com");
     }
 }

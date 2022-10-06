@@ -1,6 +1,7 @@
 package com.hackaton.hackation2022.global.security.jwt;
 
 import antlr.Token;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.hackaton.hackation2022.domain.auth.domain.RefreshToken;
 import com.hackaton.hackation2022.domain.auth.domain.repository.RefreshTokenRepository;
 import com.hackaton.hackation2022.domain.auth.presentation.dto.response.TokenResponse;
@@ -31,7 +32,6 @@ public class JwtTokenProvider {
 
     public TokenResponse getToken(String email) {
         String accessToken = generateToken(email, "access", jwtProperties.getAccessExp());
-
         return new TokenResponse(accessToken);
     }
 

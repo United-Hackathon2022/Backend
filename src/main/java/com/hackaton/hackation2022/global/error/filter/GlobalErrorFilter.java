@@ -33,6 +33,7 @@ public class GlobalErrorFilter extends OncePerRequestFilter {
             if (e.getCause() instanceof DalgeoriException) {
                 setErrorResponse(((DalgeoriException) e.getCause()).getErrorProperty(), response);
             } else {
+                e.printStackTrace();
                 setErrorResponse(ErrorCode.INTERNAL_SERVER_ERROR, response);
             }
         }

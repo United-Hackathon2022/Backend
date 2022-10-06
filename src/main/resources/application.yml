@@ -35,8 +35,20 @@ jwt:
   header: ${JWT_HEADER}
   prefix: ${JWT_PREFIX}
 
+auth:
   naver:
     client-id: ${NAVER_CLIENT_ID}
     client-secret: ${NAVER_CLIENT_SECRET}
     state: ${NAVER_STATE}
+
+logging:
+  level:
+    com.hackaton.hackation2022.infrasructure.fegin.client.NaverTokenClient: DEBUG
+    com.hackaton.hackation2022.infrasructure.fegin.client.NaverUserInfoClient: DEBUG
+    root: info
+    ads.client: debug # open feign package 로그를 보기 위함.
+    com.client.external: debug
+
+external-api:
+  http-bin: http://localhost:9090
 

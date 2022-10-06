@@ -1,5 +1,6 @@
 package com.hackaton.hackation2022.domain.auth.presentation;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.hackaton.hackation2022.domain.auth.presentation.dto.response.TokenResponse;
 import com.hackaton.hackation2022.domain.auth.service.NaverOauthService;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +17,7 @@ public class AuthController {
 
     @GetMapping("/naver/redirect")
     public TokenResponse getNaverCode(@RequestParam(required = false) String code) {
-        return naverOauthService.getCode(code);
+         return naverOauthService.getCode(code);
     }
 
 }
