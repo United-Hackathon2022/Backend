@@ -36,6 +36,4 @@ public class FeedController {
     public QueryFeedDetailResponse feedDetail(@PathVariable("feed-id") Long feedId) {
         return queryFeedDetailService.execute(feedId);
     }
-
-    
 }
