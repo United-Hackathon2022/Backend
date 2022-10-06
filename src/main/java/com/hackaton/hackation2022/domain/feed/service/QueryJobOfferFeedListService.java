@@ -1,7 +1,9 @@
 package com.hackaton.hackation2022.domain.feed.service;
 
+import com.hackaton.hackation2022.domain.feed.domain.Feed;
 import com.hackaton.hackation2022.domain.feed.domain.repository.FeedRepository;
 import com.hackaton.hackation2022.domain.feed.domain.type.FeedType;
+import com.hackaton.hackation2022.domain.feed.presentation.dto.response.FeedListResponse;
 import com.hackaton.hackation2022.domain.feed.presentation.dto.response.FeedResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,8 +19,12 @@ public class QueryJobOfferFeedListService {
     private final FeedRepository feedRepository;
 
     @Transactional(readOnly = true)
-    public List<FeedResponse> execute() {
-            return feedRepository.findFeedsByType(FeedType.JOB_OFFER)
-                    .stream().map(FeedResponse::of).collect(Collectors.toList());
+    public FeedListResponse execute() {
+        List<FeedResponse> feedList = feedRepository.findFeedsByType(FeedType.JOB_OFFER)
+                .stream().map(FeedResponse::of).collect(Collectors.toList());
+
+        return FeedListResponse.builder()
+                .feedList(feedList)
+                .build();
     }
 }

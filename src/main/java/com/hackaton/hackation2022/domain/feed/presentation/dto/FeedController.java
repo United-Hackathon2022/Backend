@@ -3,6 +3,7 @@ package com.hackaton.hackation2022.domain.feed.presentation.dto;
 import com.hackaton.hackation2022.domain.feed.presentation.dto.request.CreateFeedRequest;
 import com.hackaton.hackation2022.domain.feed.presentation.dto.request.UpdateFeedRequest;
 import com.hackaton.hackation2022.domain.feed.presentation.dto.response.FeedDetailResponse;
+import com.hackaton.hackation2022.domain.feed.presentation.dto.response.FeedListResponse;
 import com.hackaton.hackation2022.domain.feed.presentation.dto.response.FeedResponse;
 import com.hackaton.hackation2022.domain.feed.service.*;
 import lombok.RequiredArgsConstructor;
@@ -31,12 +32,12 @@ public class FeedController {
     }
 
     @GetMapping("/question")
-    public List<FeedResponse> getQuestionFeeds() {
+    public FeedListResponse getQuestionFeeds() {
         return queryQuestionFeedListService.execute();
     }
 
     @GetMapping("/job-offer")
-    public List<FeedResponse> getJobOfferFeeds() {
+    public FeedListResponse getJobOfferFeeds() {
         return queryJobOfferFeedListService.execute();
     }
 
