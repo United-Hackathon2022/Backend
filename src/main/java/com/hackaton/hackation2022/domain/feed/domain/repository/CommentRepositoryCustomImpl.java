@@ -1,7 +1,7 @@
 package com.hackaton.hackation2022.domain.feed.domain.repository;
 
 import com.hackaton.hackation2022.domain.feed.domain.repository.vo.QRelatedCommentVo;
-import com.hackaton.hackation2022.domain.feed.domain.repository.vo.RelatedCommentVo;
+import com.hackaton.hackation2022.domain.feed.domain.repository.vo.CommentVo;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -18,7 +18,7 @@ public class CommentRepositoryCustomImpl implements CommentRepositoryCustom {
     private final JPAQueryFactory jpaQueryFactory;
 
     @Override
-    public List<RelatedCommentVo> findCommentsListByFeed(Long feedId) {
+    public List<CommentVo> findCommentsListByFeed(Long feedId) {
         return jpaQueryFactory
                 .select(new QRelatedCommentVo(
                         comment.content,

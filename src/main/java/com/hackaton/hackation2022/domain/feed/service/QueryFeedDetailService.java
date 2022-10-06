@@ -2,7 +2,7 @@ package com.hackaton.hackation2022.domain.feed.service;
 
 import com.hackaton.hackation2022.domain.feed.domain.Feed;
 import com.hackaton.hackation2022.domain.feed.domain.repository.CommentRepository;
-import com.hackaton.hackation2022.domain.feed.domain.repository.vo.RelatedCommentVo;
+import com.hackaton.hackation2022.domain.feed.domain.repository.vo.CommentVo;
 import com.hackaton.hackation2022.domain.feed.facade.FeedFacade;
 import com.hackaton.hackation2022.domain.feed.presentation.dto.response.CommentResponse;
 import com.hackaton.hackation2022.domain.feed.presentation.dto.response.FeedDetailResponse;
@@ -29,7 +29,7 @@ public class QueryFeedDetailService {
     }
 
     private FeedDetailResponse feedDetailResponseBuilder(Feed feed) {
-        List<RelatedCommentVo> comments = commentRepository.findCommentsListByFeed(feed.getId());
+        List<CommentVo> comments = commentRepository.findCommentsListByFeed(feed.getId());
 
         return FeedDetailResponse.builder()
                 .title(feed.getTitle())
@@ -47,7 +47,7 @@ public class QueryFeedDetailService {
         return new UserResponse(user.getName(), user.getProfileImageUrl());
     }
 
-    private CommentResponse createCommentResponse(RelatedCommentVo vo) {
+    private CommentResponse createCommentResponse(CommentVo vo) {
         return CommentResponse.builder()
                 .content(vo.getContent())
                 .user(createUserResponse(vo.getUsername(), vo.getProfileImage()))
