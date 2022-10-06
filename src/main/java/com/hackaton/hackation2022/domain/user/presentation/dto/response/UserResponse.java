@@ -10,8 +10,4 @@ public class UserResponse {
 
     private String name;
     private String profileImageUrl;
-
-    public static UserResponse of(User user) {
-
-    }
 }
