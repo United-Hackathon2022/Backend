@@ -1,7 +1,6 @@
 package com.hackaton.hackation2022.domain.feed.presentation.dto.request;
 
 import com.hackaton.hackation2022.domain.feed.domain.type.FeedType;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
@@ -10,7 +9,7 @@ import javax.validation.constraints.NotBlank;
 
 @Getter
 @NoArgsConstructor
-public class FeedRequest {
+public class CreateFeedRequest {
 
     @NotBlank
     @Length(max = 30)

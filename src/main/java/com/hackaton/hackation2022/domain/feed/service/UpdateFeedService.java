@@ -2,8 +2,7 @@ package com.hackaton.hackation2022.domain.feed.service;
 
 import com.hackaton.hackation2022.domain.feed.domain.Feed;
 import com.hackaton.hackation2022.domain.feed.facade.FeedFacade;
-import com.hackaton.hackation2022.domain.feed.presentation.dto.request.FeedRequest;
-import com.hackaton.hackation2022.domain.user.domain.User;
+import com.hackaton.hackation2022.domain.feed.presentation.dto.request.UpdateFeedRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,7 +14,7 @@ public class UpdateFeedService {
     private final FeedFacade feedFacade;
 
     @Transactional
-    public void execute(Long feedId, FeedRequest request) {
+    public void execute(Long feedId, UpdateFeedRequest request) {
         Feed feed = feedFacade.findFeedById(feedId);
         // TODO :: getCurrentUser
         feed.validateUser(null);

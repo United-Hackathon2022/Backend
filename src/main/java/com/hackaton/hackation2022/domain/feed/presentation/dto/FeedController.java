@@ -1,6 +1,7 @@
 package com.hackaton.hackation2022.domain.feed.presentation.dto;
 
-import com.hackaton.hackation2022.domain.feed.presentation.dto.request.FeedRequest;
+import com.hackaton.hackation2022.domain.feed.presentation.dto.request.CreateFeedRequest;
+import com.hackaton.hackation2022.domain.feed.presentation.dto.request.UpdateFeedRequest;
 import com.hackaton.hackation2022.domain.feed.presentation.dto.response.FeedDetailResponse;
 import com.hackaton.hackation2022.domain.feed.presentation.dto.response.FeedResponse;
 import com.hackaton.hackation2022.domain.feed.service.*;
@@ -24,7 +25,7 @@ public class FeedController {
 
     @PostMapping
     @ResponseStatus(value = HttpStatus.CREATED)
-    public void createFeed(@RequestBody @Valid FeedRequest request) {
+    public void createFeed(@RequestBody @Valid CreateFeedRequest request) {
         createFeedService.execute(request);
     }
 
@@ -39,7 +40,7 @@ public class FeedController {
     }
 
     @PutMapping("/{feed-id}")
-    public void updateFeed(@PathVariable Long feedId, @RequestBody @Valid FeedRequest request) {
+    public void updateFeed(@PathVariable Long feedId, @RequestBody @Valid UpdateFeedRequest request) {
         updateFeedService.execute(feedId, request);
     }
 
