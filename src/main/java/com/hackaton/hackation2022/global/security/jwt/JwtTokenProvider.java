@@ -1,7 +1,9 @@
 package com.hackaton.hackation2022.global.security.jwt;
 
+import antlr.Token;
 import com.hackaton.hackation2022.domain.auth.domain.RefreshToken;
 import com.hackaton.hackation2022.domain.auth.domain.repository.RefreshTokenRepository;
+import com.hackaton.hackation2022.domain.auth.presentation.dto.response.TokenResponse;
 import com.hackaton.hackation2022.global.security.jwt.auth.AuthDetailsService;
 import com.hackaton.hackation2022.global.security.jwt.exception.ExpiredJwtException;
 import com.hackaton.hackation2022.global.security.jwt.exception.InvalidJwtException;
@@ -27,8 +29,10 @@ public class JwtTokenProvider {
     private final RefreshTokenRepository refreshTokenRepository;
 
 
-    public String generateAccessToken(String email) {
-        return generateToken(email, "access", jwtProperties.getAccessExp());
+    public TokenResponse getToken(String email) {
+        String accessToken = generateToken(email, "access", jwtProperties.getAccessExp());
+
+        return new TokenResponse(accessToken);
     }
 
     public String generateRefreshToken(String email) {
