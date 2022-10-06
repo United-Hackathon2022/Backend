@@ -45,6 +45,7 @@ public class SecurityConfig {
                 .authorizeRequests()
                 .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
 
+                .antMatchers(HttpMethod.POST, "/feeds").permitAll()
                 .antMatchers(HttpMethod.GET, "/auth/naver/redirect").permitAll()
 
                 .anyRequest().denyAll()
