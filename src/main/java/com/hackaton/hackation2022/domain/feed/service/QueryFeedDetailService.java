@@ -24,7 +24,7 @@ public class QueryFeedDetailService {
 
     @Transactional(readOnly = true)
     public FeedDetailResponse execute(Long feedId) {
-        Feed feed = feedFacade.findFeedById(feedId);
+        Feed feed = feedFacade.getFeedById(feedId);
         return feedDetailResponseBuilder(feed);
     }
 

@@ -16,7 +16,7 @@ public class DeleteFeedService {
 
     @Transactional
     public void execute(Long feedId) {
-        Feed feed = feedFacade.findFeedById(feedId);
+        Feed feed = feedFacade.getFeedById(feedId);
         // TODO :: getCurrentUser
         feed.validateUser(null);
         feedRepository.delete(feed);
