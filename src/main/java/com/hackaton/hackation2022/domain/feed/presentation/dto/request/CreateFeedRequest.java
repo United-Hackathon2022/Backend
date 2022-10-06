@@ -19,7 +19,5 @@ public class CreateFeedRequest {
     @Length(max = 1000)
     private String content;
 
-    @NotBlank
-    @Length(max = 8)
     private FeedType type;
 }

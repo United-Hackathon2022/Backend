@@ -35,12 +35,10 @@ public class User extends BaseTimeIdEntity {
     private String authCode;
 
     @NotNull
-    @Length(max = 1)
     @Enumerated(EnumType.STRING)
     private Sex sex;
 
     @NotNull
-    @Length(max = 5)
     @Enumerated(EnumType.STRING)
     private Authority authority;
 

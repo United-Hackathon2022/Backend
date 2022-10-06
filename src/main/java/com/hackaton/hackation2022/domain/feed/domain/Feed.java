@@ -27,8 +27,7 @@ public class Feed extends BaseTimeIdEntity {
     private String content;
 
     @NotNull
-    @Length(max = 8)
-    @Enumerated(value = EnumType.STRING)
+    @Enumerated(EnumType.STRING)
     private FeedType type;
 
     @ManyToOne(fetch = FetchType.LAZY)
