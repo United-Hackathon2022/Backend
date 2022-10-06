@@ -40,9 +40,6 @@ public class QueryQuestionFeedListService {
     }
 
     private UserResponse createUserResponse(User user) {
-        return UserResponse.builder()
-                .name(user.getName())
-                .profileImageUrl(user.getProfileImageUrl())
-                .build();
+        return new UserResponse(user.getName(), user.getProfileImageUrl());
     }
 }

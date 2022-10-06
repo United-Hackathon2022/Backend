@@ -44,10 +44,7 @@ public class QueryFeedDetailService {
     }
 
     private UserResponse createUserResponse(User user) {
-        return UserResponse.builder()
-                .name(user.getName())
-                .profileImageUrl(user.getProfileImageUrl())
-                .build();
+        return new UserResponse(user.getName(), user.getProfileImageUrl());
     }
 
     private CommentResponse createCommentResponse(RelatedCommentVo vo) {
@@ -58,9 +55,6 @@ public class QueryFeedDetailService {
     }
 
     private UserResponse createUserResponse(String name, String profileImageUrl) {
-        return UserResponse.builder()
-                .name(name)
-                .profileImageUrl(profileImageUrl)
-                .build();
+        return new UserResponse(name, profileImageUrl);
     }
 }
