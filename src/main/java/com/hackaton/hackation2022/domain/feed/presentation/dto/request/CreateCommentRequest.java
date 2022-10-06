@@ -1,6 +1,5 @@
 package com.hackaton.hackation2022.domain.feed.presentation.dto.request;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

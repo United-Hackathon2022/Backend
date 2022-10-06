@@ -29,16 +29,15 @@ public class QueryFeedDetailService {
     @Transactional(readOnly = true)
     public QueryFeedDetailResponse execute(Long feedId) {
         userFacade.queryCurrentUser();
-        Comment comment = commentFacade.getCommentByFeedId(feedId);
         Feed feed = feedFacade.getFeedById(feedId);
 
         List<QueryCommentResponse> commentList = commentRepository.findAllByFeedId(feedId)
                 .stream()
                 .map(comment1 -> QueryCommentResponse.builder()
-                        .content(comment.getContent())
+                        .content(comment1.getContent())
                         .user(Writer.builder()
-                                .name(comment.getUser().getName())
-                                .profileImageUrl(comment.getUser().getProfileImageUrl())
+                                .name(comment1.getUser().getName())
+                                .profileImageUrl(comment1.getUser().getProfileImageUrl())
                                 .build())
                         .build()
                 ).collect(Collectors.toList());
