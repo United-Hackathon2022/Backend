@@ -9,10 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Getter
@@ -53,9 +50,12 @@ public class User extends BaseTimeIdEntity {
     @NotNull
     private String firstAge;
 
+    private Integer followingCount;
+    private Integer followerCount;
+
     @Builder
     public User(String email, String name, String password, String authCode, Sex sex,
-                Authority authority, String profileImageUrl, String firstAge) {
+                Authority authority, String profileImageUrl, String firstAge, Integer followingCount, Integer followerCount) {
         this.email = email;
         this.name = name;
         this.password = password;
@@ -64,5 +64,7 @@ public class User extends BaseTimeIdEntity {
         this.authority = authority;
         this.profileImageUrl = profileImageUrl;
         this.firstAge = firstAge;
+        this.followingCount = followingCount;
+        this.followerCount = followerCount;
     }
 }
