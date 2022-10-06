@@ -22,7 +22,7 @@ public class QueryFeedListService {
     private final FeedRepository feedRepository;
 
     @Transactional(readOnly = true)
-    public FeedListResponse execute(@RequestParam String type) {
+    public FeedListResponse execute(String type) {
         List<FeedResponse> feedList = feedRepository.findFeedsByType(FeedType.valueOf(type))
                 .stream().map(this::createFeedResponse).collect(Collectors.toList());
 
