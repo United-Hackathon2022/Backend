@@ -18,15 +18,4 @@ public class FeedDetailResponse {
     private FeedType type;
     private UserResponse user;
     private List<CommentResponse> comments;
-
-    public static FeedDetailResponse of(Feed feed) {
-        return FeedDetailResponse.builder()
-                .title(feed.getTitle())
-                .content(feed.getContent())
-                .type(feed.getType())
-                .user(UserResponse.of(feed.getUser()))
-                .comments(feed.getComments().stream()
-                        .map(CommentResponse::of).collect(Collectors.toList()))
-                .build();
-    }
 }

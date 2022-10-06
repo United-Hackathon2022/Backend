@@ -12,9 +12,6 @@ public class UserResponse {
     private String profileImageUrl;
 
     public static UserResponse of(User user) {
-        return UserResponse.builder()
-                .name(user.getName())
-                .profileImageUrl(user.getProfileImageUrl())
-                .build();
+
     }
 }
