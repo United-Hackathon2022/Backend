@@ -32,6 +32,7 @@ public class QueryQuestionFeedListService {
 
     private FeedResponse createFeedResponse(Feed feed) {
         return FeedResponse.builder()
+                .id(feed.getId())
                 .title(feed.getTitle())
                 .content(feed.getContent())
                 .user(createUserResponse(feed.getUser()))

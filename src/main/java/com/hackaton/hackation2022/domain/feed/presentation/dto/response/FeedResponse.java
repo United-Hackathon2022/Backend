@@ -8,6 +8,7 @@ import lombok.Getter;
 @Builder
 public class FeedResponse {
 
+    private Long id;
     private String title;
     private String content;
     private UserResponse user;
