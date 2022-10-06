@@ -1,7 +1,7 @@
 package com.hackaton.hackation2022.global.security.jwt.exception;
 
 import com.hackaton.hackation2022.global.error.exception.DalgeoriException;
-import com.hackaton.hackation2022.global.security.jwt.error.JwtErrorProperty;
+import com.hackaton.hackation2022.global.security.jwt.error.SecurityErrorProperty;
 
 public class InvalidJwtException extends DalgeoriException {
 
@@ -9,6 +9,6 @@ public class InvalidJwtException extends DalgeoriException {
             new InvalidJwtException();
 
     private InvalidJwtException() {
-        super(JwtErrorProperty.EXPIRED_JWT);
+        super(SecurityErrorProperty.EXPIRED_JWT);
     }
 }
