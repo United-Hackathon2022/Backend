@@ -6,5 +6,4 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class NaverUserInfoResponse {
-    private final NaverUserINfoElement response;
 }
