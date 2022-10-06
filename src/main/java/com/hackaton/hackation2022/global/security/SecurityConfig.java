@@ -44,7 +44,10 @@ public class SecurityConfig {
                 .and()
                 .authorizeRequests()
                 .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
+
                 .antMatchers(HttpMethod.GET, "/auth/naver/redirect").permitAll()
+
+                .anyRequest().denyAll()
 
                 .and()
                 .apply(new JwtFilterConfig(jwtTokenProvider, objectMapper));

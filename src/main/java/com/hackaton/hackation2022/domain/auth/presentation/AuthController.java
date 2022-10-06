@@ -15,7 +15,7 @@ public class AuthController {
     private final NaverOauthService naverOauthService;
 
     @GetMapping("/naver/redirect")
-    public TokenResponse getNaverCode(@RequestParam String code) {
+    public TokenResponse getNaverCode(@RequestParam(required = false) String code) {
         return naverOauthService.getCode(code);
     }
 
