@@ -37,9 +37,6 @@ public class Feed extends BaseTimeIdEntity {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @OneToMany(mappedBy = "feed", cascade = CascadeType.ALL)
-    private List<Comment> comments;
-
     @Builder
     public Feed(String title, String content, FeedType type, User user) {
         this.title = title;
