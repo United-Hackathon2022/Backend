@@ -1,5 +1,6 @@
 package com.hackaton.hackation2022.domain.feed.presentation;
 
+import com.hackaton.hackation2022.domain.auth.presentation.dto.response.TokenResponse;
 import com.hackaton.hackation2022.domain.feed.domain.type.FeedType;
 import com.hackaton.hackation2022.domain.feed.presentation.dto.request.CreateFeedRequest;
 import com.hackaton.hackation2022.domain.feed.presentation.dto.response.QueryFeedDetailResponse;
@@ -7,6 +8,7 @@ import com.hackaton.hackation2022.domain.feed.presentation.dto.response.QueryFee
 import com.hackaton.hackation2022.domain.feed.service.CreateFeedService;
 import com.hackaton.hackation2022.domain.feed.service.QueryFeedDetailService;
 import com.hackaton.hackation2022.domain.feed.service.QueryFeedListService;
+import com.hackaton.hackation2022.global.security.jwt.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +22,7 @@ public class FeedController {
     private final CreateFeedService createFeedService;
     private final QueryFeedListService queryFeedListService;
     private final QueryFeedDetailService queryFeedDetailService;
+    private final JwtTokenProvider jwtTokenProvider;
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
@@ -35,5 +38,10 @@ public class FeedController {
     @GetMapping("/{feed-id}")
     public QueryFeedDetailResponse feedDetail(@PathVariable("feed-id") Long feedId) {
         return queryFeedDetailService.execute(feedId);
+    }
+
+    @GetMapping("/token")
+    public TokenResponse token() {
+        return jwtTokenProvider.getToken("nh1264@naver.com");
     }
 }

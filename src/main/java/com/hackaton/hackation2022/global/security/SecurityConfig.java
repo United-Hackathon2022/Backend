@@ -46,6 +46,15 @@ public class SecurityConfig {
                 .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
 
                 .antMatchers(HttpMethod.POST, "/feeds").permitAll()
+                .antMatchers(HttpMethod.GET, "/feeds/list").permitAll()
+                .antMatchers(HttpMethod.GET, "/feeds/{feed-id}").permitAll()
+
+                .antMatchers(HttpMethod.GET, "/feeds/token").permitAll()
+
+                .antMatchers(HttpMethod.GET, "/users").permitAll()
+
+                .antMatchers(HttpMethod.POST, "/comments/{feed-id}").permitAll()
+
                 .antMatchers(HttpMethod.GET, "/auth/naver/redirect").permitAll()
 
                 .anyRequest().denyAll()
